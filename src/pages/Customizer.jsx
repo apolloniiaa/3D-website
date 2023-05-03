@@ -9,13 +9,7 @@ import { downloadCanvasToImage, reader } from '../config/helpers';
 import { EditorTabs, FilterTabs, DecalTypes } from '../config/constants';
 import { fadeAnimation, slideAnimation } from '../config/motion';
 
-import {
-  AIPicker,
-  ColorPicker,
-  Tab,
-  CustomButton,
-  FilePicker,
-} from '../components';
+import { ColorPicker, Tab, CustomButton, FilePicker } from '../components';
 
 const Customizer = () => {
   const snap = useSnapshot(state);
@@ -34,8 +28,6 @@ const Customizer = () => {
         return <ColorPicker />;
       case 'filepicker':
         return <FilePicker setFile={setFile} file={file} readFile={readFile} />;
-      case 'aipicker':
-        return <AIPicker />;
       default:
         return null;
     }
@@ -56,9 +48,11 @@ const Customizer = () => {
         break;
       case 'stylishShirt':
         state.isFullTexture = !activeFilterTab[tabName];
+        break;
       default:
-        state.isFullTexture = true;
-        state.isLogoTexture = false;
+        state.isLogoTexture = true;
+        state.isFullTexture = false;
+        break;
     }
     //activefiltertab updaet the ui
 

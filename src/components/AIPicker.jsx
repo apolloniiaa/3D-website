@@ -1,5 +1,5 @@
 const AIPicker = () => {
-  return <div> AIPicker</div>;
+  return <div></div>;
 };
 
 export default AIPicker;
